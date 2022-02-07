@@ -1,27 +1,3 @@
-// deserialize each .json file in the in directory
-exampleJson = {
-    "id": "777296562719686657",
-    "type": "Default",
-    "timestamp": "2020-11-14T22:19:02.024+00:00",
-    "timestampEdited": null,
-    "callEndedTimestamp": null,
-    "isPinned": false,
-    "content": "hey guys",
-    "author": {
-        "id": "390240701666951199",
-        "name": "Getbearned™",
-        "discriminator": "3764",
-        "nickname": "GetMorgand",
-        "color": "#65AD49",
-        "isBot": false,
-        "avatarUrl": "https://cdn.discordapp.com/avatars/390240701666951199/a400d6d4dffc3ba5bf5da29fa2edf528.png?size=128"
-    },
-    "attachments": [],
-    "embeds": [],
-    "reactions": [],
-    "mentions": []
-}
-
 const fs = require('fs');
 const path = require('path');
 
