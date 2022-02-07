@@ -6,14 +6,26 @@ fs.readdir(path.join(__dirname, 'in'), (err, files) => {
         console.error(err);
         return;
     }
+    
+    console.log(`Processing ${files.length} files...`);
+
     files.forEach(file => {
-        fs.readFile(path.join(__dirname, 'in', "hub.json"), 'utf8', (err, data) => {
+        fs.readFile(path.join(__dirname, 'in', file), 'utf8', (err, data) => {
             if (err) {
                 console.error(err);
                 return;
             }
             const json = JSON.parse(data);
-            console.log(cleanMessages(json.messages))
+            console.log(`Processing ${file} with ${json.messages.length} messages...`);
+
+            let text = cleanMessages(json.messages) + "\n\n";
+
+            fs.writeFile(path.join(__dirname, 'out', file.split(".")[0] + ".txt"), text, 'utf8', (err) => {
+                if (err) {
+                    console.error(err);
+                    return;
+                }
+            });
         });
     });
 });
@@ -35,6 +47,7 @@ function cleanMessages(messages) {
             if (message.timestamp - lastMessage.timestamp > 1000 * 60 * 10) {
                 cleanMessages += "\n\n\n" + message.content;
             }
+
             // Else process this as a response or continuation of the previous message
             else {
                 // If the author is the same as the last author, concat the content as a continuation of the previous message
