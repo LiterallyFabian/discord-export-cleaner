@@ -2,7 +2,7 @@
 Node.js script to clean up Discord chat exports made with [Tyrrrz/DiscordChatExporter](https://github.com/Tyrrrz/DiscordChatExporter) to make them usable for AI training. 
 
 ## Usage
-Place all your .json files retreived from [DiscordChatExporter](https://github.com/Tyrrrz/DiscordChatExporter) in a directory called `in/` and run the script.
+Place all your .json files retrieved from [DiscordChatExporter](https://github.com/Tyrrrz/DiscordChatExporter) in a directory called `in/` and run the script.
 
 ```bash
 node index.js
